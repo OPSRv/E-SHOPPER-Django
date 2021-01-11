@@ -1,0 +1,14 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+  {% include "../layouts/_slider.html" %}
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3">{% include "../layouts/_categories.html" %}</div>
+        <div class="col-sm-9 padding-right">
+          {% include "../layouts/_features.html" %} 
+          {% include "../layouts/_recommended_items.html" %}
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

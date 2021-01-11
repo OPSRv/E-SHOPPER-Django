@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+  <div class="col-sm-12 search_margin">
+    <h2 class="title text-center">Search Results</h2>
+  </div>
+{% for product in object_list %}
+
+    <div class="product-image-wrapper cart_flex_search">
+
+        <div class="productinfo text-center cart_search">
+          <img src="{{ product.photo_main.url }}" alt="{{product.tittle}}" />
+          <h2>${{ product.price }}</h2>
+          <p>{{ product.tittle }}</p>
+          <a class="btn btn-default add-to-cart"  href="{% url 'cart' product.id %}"
+            ><i class="fa fa-shopping-cart" ></i>Add to cart</a>
+        </div>
+          </div>
+  {% endfor %} {% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="col-sm-12">
+        <h2 class="title text-center">User dashboard</h2>
+      </div>
+      {% include 'layouts/_alerts.html' %} {% if orders %}
+      <div class="table-responsive cart_info">
+        <div>
+          <table class="table table-condensed">
+            <thead>
+              <tr class="cart_menu">
+                <td class="image"></td>
+                <td class="image">Title</td>
+                <td class="price">Price</td>
+                <td class="total">Sale</td>
+                <td class="quantity">Quantity</td>
+                <td class="total">Total</td>
+                <td></td>
+              </tr>
+            </thead>
+
+            <tbody>
+              {% for order in orders %}
+              <tr>
+                <td class="dashboard_images">
+                  <img src="{{ order.photo_main.url }}" />
+                </td>
+                <td class="cart_description">
+                  <h4>{{ order.tittle }}</h4>
+                </td>
+                <td class="cart_price">
+                  <p>${{ order.price }}</p>
+                </td>
+                <td class="dashboard_sale">
+                  <p>{{ order.sale }}</p>
+                </td>
+                <td class="cart_quantity">
+                  <div class="cart_quantity_button">
+                    <p>{{ order.quantity }}</p>
+                  </div>
+                </td>
+                <td class="cart_total">
+                  <p class="cart_total_price">${{ order.price }}</p>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% endblock %}
